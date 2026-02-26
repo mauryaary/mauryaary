@@ -13,10 +13,16 @@ pipeline {
             }
         }
 
-        stage('Publish Test Report') {
+        stage('Publish JUnit Report') {
             steps {
                 junit '**/target/surefire-reports/*.xml'
             }
+        }
+    }
+
+    post {
+        always {
+            echo "Execution Finished"
         }
     }
 }
